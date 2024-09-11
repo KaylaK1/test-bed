@@ -10,11 +10,11 @@ const docIds = [
 
 const printDocs = async () => {
   const workOrders = await getWorkOrders(docIds);
-  const properties = getProperties(workOrders);
-// const properties = [
-//     { field: 'name', displayName: 'Customer'},
-//     { field: 'number', displayName: 'Phone'}
-//   ];
+  getProperties(workOrders);
+  const properties = [
+    { field: 'name', displayName: 'Customer'},
+    { field: 'number', displayName: 'Phone'}
+  ];
 
   print({
     printable: workOrders, 

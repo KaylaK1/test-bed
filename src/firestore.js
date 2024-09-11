@@ -70,23 +70,25 @@ const formatLumberOrder = (workOrder) => {
 }
 
 
-export const getProperties = (workOrders) => {
-    const properties = [];
-    console.log(workOrders);
+// export const getProperties = (workOrders) => {
+//     const properties = [];
 
-    Object.keys(workOrders['lumberOrder']);
+//     for (const order of workOrders) {
+//         for (const lumber of order[])
+//     }
+    //Object.keys(workOrders['lumberOrder']);
 
-    Object.entries(workOrders['lumberOrder'].forEach(([lumberType, count]) => {
-        properties.push({
-            field: lumberType, displayName: 'Lumber'
-        }, {
-            field: count, displayName: 'Count'
-        })
-    }));
-    Object.entries(workOrders).forEach((key) => {
-        console.log(`Key: ${key}`);
-    })
-    return properties;
+    // Object.entries(workOrders['lumberOrder'].forEach(([lumberType, count]) => {
+    //     properties.push({
+    //         field: lumberType, displayName: 'Lumber'
+    //     }, {
+    //         field: count, displayName: 'Count'
+    //     })
+    // }));
+    // Object.entries(workOrders).forEach((key) => {
+    //     console.log(`Key: ${key}`);
+    // })
+    // return properties;
 }
 
 // [
