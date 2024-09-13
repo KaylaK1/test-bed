@@ -17,27 +17,22 @@ const app = initializeApp(firebaseConfig);
 
 // Initialize Cloud firestore and get a reference to the service
 const db = getFirestore(app);
-const docIds = [
-  "LEJTpEMzmy4rmIOOuHGK",
-  "T914JYcadubcNjPCfcwG"
-]
 
 // from an array of workOrder ids, query each id, adding each doc to an array and return
 export const getWorkOrders = async (workOrderIds) => {
     const workOrders = [];
   
     for (const id of workOrderIds) {
-      const workOrder = await getWorkOrder(id);
-      if (workOrder) {
-        // Format LumberOrder from Object to Key:String (lumberOrder: "long form concact")
-        const flattenedOrder = formatLumberOrder(workOrder);
-        workOrder['lumberOrder'] = flattenedOrder;
-        console.log('Formatted workOrder: ', workOrder);
-        workOrders.push(workOrder);
+      try {
+        const workOrder = await getWorkOrder(id);
+        if (workOrder) {
+          workOrders.push(workOrder);
+      }
+      } catch {
+        console.error('Error retrieving work order');
       }
     }
-    
-    
+       
     return workOrders;
 }
 
@@ -55,54 +50,3 @@ const getWorkOrder = async (documentId) => {
   }
 }
 
-const formatLumberOrder = (workOrder) => {
-    console.log(JSON.stringify(workOrder, null, 2));
-    const lumberOrder = workOrder['lumberOrder'];
-    const flattenedOrder = {};
-
-    Object.entries(lumberOrder).forEach(([lumberType, lengthAndCount]) => {
-        Object.entries(lengthAndCount).forEach(([length, count]) => {
-            flattenedOrder[`${lumberType} ${length}`] = count;
-        });
-    });
-
-    return flattenedOrder;
-}
-
-
-// export const getProperties = (workOrders) => {
-//     const properties = [];
-
-//     for (const order of workOrders) {
-//         for (const lumber of order[])
-//     }
-    //Object.keys(workOrders['lumberOrder']);
-
-    // Object.entries(workOrders['lumberOrder'].forEach(([lumberType, count]) => {
-    //     properties.push({
-    //         field: lumberType, displayName: 'Lumber'
-    //     }, {
-    //         field: count, displayName: 'Count'
-    //     })
-    // }));
-    // Object.entries(workOrders).forEach((key) => {
-    //     console.log(`Key: ${key}`);
-    // })
-    // return properties;
-}
-
-// [
-//     { field: 'lumberOrder.a', displayName: 'Lumber'},
-//     { field: 'lumberOrder.2x12 PT Brown.96', displayName: 'Count' },
-//     { field: 'name', displayName: 'Customer'},
-//     { field: 'number', displayName: 'Phone'}
-//   ],
-
-
-
-//console.log(JSON.stringify(getWorkOrders(docIds), null, 2));
-
-// (async () => {
-//   const workOrders = await getWorkOrders(docIds);
-//   console.log(JSON.stringify(workOrders, null, 2));
-// })();
