@@ -1,5 +1,5 @@
 
-import { getWorkOrders, getProperties } from './firestore';
+import { getWorkOrders, getProperties } from './FirestoreQueries';
 import { PrintingForm, reducer, initialState } from './PrintingForm';
 import { useEffect, useReducer, useState, useCallback } from 'react';
 
@@ -8,21 +8,6 @@ const docIds = [
   "T914JYcadubcNjPCfcwG"
 ];
 
-// const initialState = {
-//   docIds: [],
-//   workOrders: [],
-// };
-
-// function reducer(state, action) {
-//   switch (action.type) {
-//     case 'SET_DOC_IDS':
-//       return { ...state, docIds: action.payload };
-//     case 'SET_WORK_ORDERS':
-//       return { ...state, workOrders: action.payload };
-//     default:
-//       return state;
-//   }
-// }
   
 function App() {
   // Printing Orders: For setting and fetching work orderIds and associated fetchWorkOrders
