@@ -28,6 +28,22 @@ const Order = [{
     }
   }];
 
+export const initialState = {
+    docIds: [],
+    workOrders: [],
+  };
+  
+export function reducer(state, action) {
+    switch (action.type) {
+      case 'SET_DOC_IDS':
+        return { ...state, docIds: action.payload };
+      case 'SET_WORK_ORDERS':
+        return { ...state, workOrders: action.payload };
+      default:
+        return state;
+    }
+  }
+
 // React.memo stops checkbox clicks from calling a rerender.
 export const PrintingForm = React.memo(( { workOrders } ) => {
   console.log("the work orders: ", workOrders);
