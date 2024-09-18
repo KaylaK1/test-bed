@@ -1,7 +1,7 @@
 
-import { getWorkOrders, getProperties } from './FirestoreQueries';
+import { getWorkOrders } from './Database/FirestoreQueries';
 import { PrintingForm, reducer, initialState } from './PrintingForm';
-import { useEffect, useReducer, useState, useCallback } from 'react';
+import { useEffect, useReducer, useState } from 'react';
 
 const docIds = [
   "LEJTpEMzmy4rmIOOuHGK",

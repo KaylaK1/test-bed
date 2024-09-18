@@ -1,5 +1,5 @@
 import { collection, addDoc, setDoc, doc, getDoc } from "firebase/firestore";
-import { db } from "./firestore";
+import { db } from "../firestore";
 
 export const getWorkOrders = async (workOrderIds) => {
     const workOrders = [];

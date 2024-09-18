@@ -49,6 +49,7 @@ export const PrintingForm = React.memo(( { workOrders } ) => {
   console.log("the work orders: ", workOrders);
   const [orderTotal, setOrderTotal] = useState(new Map());
 
+
   // Calculate the Order Total - only when workOrders changes
   useEffect(() => {
     // Use a new Map to clear old state
