@@ -46,7 +46,7 @@ export function reducer(state, action) {
 
 // React.memo stops checkbox clicks from calling a rerender.
 export const PrintingForm = React.memo(( { workOrders } ) => {
-  console.log("the work orders: ", workOrders);
+  //console.log("the work orders: ", workOrders);
   const [orderTotal, setOrderTotal] = useState(new Map());
 
 
@@ -71,7 +71,7 @@ export const PrintingForm = React.memo(( { workOrders } ) => {
     });
 
     setOrderTotal(newOrderTotal);
-    console.log("updated total: ",newOrderTotal);
+    //console.log("updated total: ",newOrderTotal);
   }, [workOrders]);
   
 
