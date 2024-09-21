@@ -64,7 +64,7 @@ const AdditionalLumberOrderDisplay = ({order}) => {
               {`${option.type} ${option.length}`}
             </MenuItem>
           ))}
-        </Select>
+        </Select> 
       </FormControl>
       <Button 
         variant='contained'
